@@ -30,10 +30,11 @@ class LaundryFactory:
     @staticmethod
     def output(washes):
         washes_formated = []
-        i = 0
+        j = 0
         for wash in washes:
-            i+=1
-            washes_formated.append([i, wash[1]])
+            j += 1
+            for i in wash[0]:
+                washes_formated.append([i,j])
 
         with open("primer_problema.txt", "w", newline='') as file:
             writer = csv.writer(file, delimiter=' ')
