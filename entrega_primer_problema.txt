@@ -1,0 +1,5 @@
+- Me gustaria resolver este problema desde el punto de vista de la materia, con los conocimientos obtenidos hasta el
+momento no se me ocurre.
+- Voy a guardar en 2 estructuras las incompatibilidades (linea que empiezan con e) y en otra las prendas. Ordenaré por
+ mayor tiempo de duración la colección de prendas y luego trataré de agrupar en un mismo lavado las prendas compatibles con mayor duración,
+ esto lo hice así porque vi estrategias de scheduling en teoria de algoritmos y muchas veces se elegia una euristica para poder optimizar el problema.
