@@ -8,8 +8,6 @@ class Laundry:
         self.incompatibilities = {}
         self.quantity_clothes = quantity_clothes
         self.clothes = []
-        self.quantity_washes = 0
-        self.max_duration = 0
 
     def add_incompatibilities(self, id_clothe1, id_clothe2):
         if id_clothe1 not in self.incompatibilities:
