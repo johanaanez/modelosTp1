@@ -24,21 +24,23 @@ class LaundryManager:
     def __init__(self, laundry):
         self.laundry = laundry
 
-    def apply(self):
+    def apply_ordered(self):
         washes = []
         self.laundry.clothes = sorted(self.laundry.clothes, key=lambda x: getattr(x, 'duration'), reverse=True)
 
-        for clothe in self.laundry.clothes:
-            if not is_present_in_any_wash(clothe.id, washes):
-                wash = [clothe.id]
+        for i in range(len(self.laundry.clothes)):
+            clothe1 = self.laundry.clothes[i]
+            if not is_present_in_any_wash(clothe1.id, washes):
+                wash = [clothe1.id]
 
-                for incompatibility in self.laundry.incompatibilities:
-                    if are_compatibles(clothe.id, incompatibility, self.laundry.incompatibilities, wash) and not is_present_in_any_wash(incompatibility, washes):
-                        wash.append(incompatibility)
+                for j in range(i+1, len(self.laundry.clothes)):
+                    clothe2 = self.laundry.clothes[j]
+                    if are_compatibles(clothe1.id, clothe2.id, self.laundry.incompatibilities,wash) and not is_present_in_any_wash(clothe2.id, washes):
+                        wash.append(clothe2.id)
 
                 if len(wash) > 0:
-                    durations = list(map(lambda k: k.duration, list(filter(lambda x: x.id in wash, self.laundry.clothes))))
+                    durations = list(
+                        map(lambda k: k.duration, list(filter(lambda x: x.id in wash, self.laundry.clothes))))
                     max_duration = max(durations)
                     washes.append([wash, max_duration])
         return washes
-

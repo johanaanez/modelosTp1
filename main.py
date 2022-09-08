@@ -13,7 +13,7 @@ def main():
 
     # calcular cantidad de lavados
     manager = LaundryManager(laundry)
-    washes = manager.apply()
+    washes = manager.apply_ordered()
 
     # escribir en el archivo de salida
     LaundryFactory.output(washes)
