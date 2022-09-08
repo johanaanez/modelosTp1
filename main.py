@@ -17,8 +17,6 @@ def main():
 
     # escribir en el archivo de salida
     LaundryFactory.output(washes)
-
-    print(washes)
     
 if __name__ == '__main__':
     main()
