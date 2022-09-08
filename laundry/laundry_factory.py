@@ -35,7 +35,7 @@ class LaundryFactory:
             i+=1
             washes_formated.append([i, wash[1]])
 
-        with open("PrimerProblema.txt", "w", newline='') as file:
+        with open("primer_problema.txt", "w", newline='') as file:
             writer = csv.writer(file, delimiter=' ')
             writer.writerows(washes_formated)
 
