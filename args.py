@@ -1,6 +1,5 @@
 import argparse
 
-
 def parse_arguments():
     usage_options = "%(prog)s [-v] [-f] "
 
@@ -9,7 +8,6 @@ def parse_arguments():
         description="<command description>"
     )
 
-    parser.add_argument("-v", "--verbose", default=False)
     parser.add_argument("-f", "--file")
 
     return parser.parse_args()

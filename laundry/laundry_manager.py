@@ -29,15 +29,16 @@ class LaundryManager:
         self.laundry.clothes = sorted(self.laundry.clothes, key=lambda x: getattr(x, 'duration'), reverse=True)
 
         for clothe in self.laundry.clothes:
-            wash = []
             if not is_present_in_any_wash(clothe.id, washes):
                 wash = [clothe.id]
-            for incompatibility in self.laundry.incompatibilities:
-                if are_compatibles(clothe.id, incompatibility, self.laundry.incompatibilities, wash) and not is_present_in_any_wash(incompatibility, washes):
-                    wash.append(incompatibility)
-            if len(wash) > 0:
-                durations = list(map(lambda k: k.duration, list(filter(lambda x: x.id in wash, self.laundry.clothes))))
-                max_duration = max(durations)
-                washes.append([wash, max_duration])
+
+                for incompatibility in self.laundry.incompatibilities:
+                    if are_compatibles(clothe.id, incompatibility, self.laundry.incompatibilities, wash) and not is_present_in_any_wash(incompatibility, washes):
+                        wash.append(incompatibility)
+
+                if len(wash) > 0:
+                    durations = list(map(lambda k: k.duration, list(filter(lambda x: x.id in wash, self.laundry.clothes))))
+                    max_duration = max(durations)
+                    washes.append([wash, max_duration])
         return washes
 
