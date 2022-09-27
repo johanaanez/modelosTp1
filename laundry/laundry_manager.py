@@ -10,7 +10,7 @@ def is_present_in_any_wash(clothe, washes):
 def is_compatible_with_wash(incompatibilities, incompatibility, wash):
     is_compatible = True
     for i in wash:
-        if (i in incompatibilities.keys() and incompatibility in incompatibilities.keys()) and (incompatibility in incompatibilities[i] or (i in incompatibilities[incompatibility])):
+        if (i in incompatibilities.keys()) and (incompatibility in incompatibilities[i]):
             is_compatible = False
     return is_compatible
 
