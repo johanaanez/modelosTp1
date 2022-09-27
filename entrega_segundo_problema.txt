@@ -1,0 +1,1 @@
+- Solo agregue una validacion para cuando alguna prenda no tiene ninguna incompatibilidad

@@ -5,8 +5,8 @@ from laundry.laundry_manager import LaundryManager
 def main():
     # obtención de argumentos
     arguments = args.parse_arguments()
-    file = arguments.file
-    #file = 'laundry/input.txt'
+    #file = arguments.file
+    file = 'laundry/input.txt'
 
     # cargar datos de los lavados
     laundry = LaundryFactory.Load(file)
