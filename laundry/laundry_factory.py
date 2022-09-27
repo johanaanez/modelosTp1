@@ -30,8 +30,10 @@ class LaundryFactory:
     def output(washes):
         washes_formated = []
         j = 0
+        total = 0
         for wash in washes:
             j += 1
+            total += wash[1]
             for i in wash[0]:
                 washes_formated.append([i,j])
 
