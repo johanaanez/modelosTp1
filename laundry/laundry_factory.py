@@ -10,11 +10,10 @@ class LaundryFactory:
         with open(file_path, 'r') as file:
             reader = csv.reader(file, delimiter=' ')
             next(reader)
-            next(reader)
-            row3 = next(reader)
+            row2 = next(reader)
 
-            quantity_clothes = int(row3[2])
-            quantity_incompatibilities = int(row3[3])
+            quantity_clothes = int(row2[2])
+            quantity_incompatibilities = int(row2[3])
             wash = Laundry(quantity_incompatibilities, quantity_clothes)
 
             for row in reader:
@@ -36,8 +35,9 @@ class LaundryFactory:
             for i in wash[0]:
                 washes_formated.append([i,j])
 
-        with open("primer_problema.txt", "w", newline='') as file:
+        with open("segundo_problema.txt", "w", newline='') as file:
             writer = csv.writer(file, delimiter=' ')
             writer.writerows(washes_formated)
 
         file.close()
+

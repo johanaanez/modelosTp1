@@ -10,7 +10,7 @@ def is_present_in_any_wash(clothe, washes):
 def is_compatible_with_wash(incompatibilities, incompatibility, wash):
     is_compatible = True
     for i in wash:
-        if i in incompatibilities[incompatibility]:
+        if (incompatibility in incompatibilities.keys()) and (i in incompatibilities[incompatibility]):
             is_compatible = False
     return is_compatible
 
@@ -33,9 +33,10 @@ class LaundryManager:
             if not is_present_in_any_wash(clothe1.id, washes):
                 wash = [clothe1.id]
 
-                for j in range(i+1, len(self.laundry.clothes)):
+                for j in range(i + 1, len(self.laundry.clothes)):
                     clothe2 = self.laundry.clothes[j]
-                    if are_compatibles(clothe1.id, clothe2.id, self.laundry.incompatibilities,wash) and not is_present_in_any_wash(clothe2.id, washes):
+                    if are_compatibles(clothe1.id, clothe2.id, self.laundry.incompatibilities,
+                                       wash) and not is_present_in_any_wash(clothe2.id, washes):
                         wash.append(clothe2.id)
 
                 if len(wash) > 0:
