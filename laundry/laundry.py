@@ -6,6 +6,7 @@ class Laundry:
     def __init__(self, quantity_incompatibilities, quantity_clothes):
         self.quantity_incompatibilities = quantity_incompatibilities
         self.incompatibilities = {}
+        self.compatibilities = {}
         self.quantity_clothes = quantity_clothes
         self.clothes = []
 
@@ -17,3 +18,9 @@ class Laundry:
 
     def add_clothes(self, id, duration):
         self.clothes.append(Clothe(id, duration))
+
+    def add_compatibilities(self, id_clothe1, id_clothe2):
+        if id_clothe1 not in self.compatibilities:
+            self.compatibilities[id_clothe1] = []
+
+        self.compatibilities[id_clothe1].append(id_clothe2)
