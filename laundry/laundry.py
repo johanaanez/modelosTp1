@@ -16,11 +16,13 @@ class Laundry:
 
         self.incompatibilities[id_clothe1].append(id_clothe2)
 
+    def remove_incompatibilities(self, id_clothe1, id_clothe2):
+        self.compatibilities[id_clothe1].remove(id_clothe2)
+
     def add_clothes(self, id, duration):
         self.clothes.append(Clothe(id, duration))
 
-    def add_compatibilities(self, id_clothe1, id_clothe2):
-        if id_clothe1 not in self.compatibilities:
-            self.compatibilities[id_clothe1] = []
-
-        self.compatibilities[id_clothe1].append(id_clothe2)
+    def add_all_clothes(self, id):
+        allClothes = [i for i in range(self.quantity_clothes+1)]
+        allClothes.remove(0)
+        self.compatibilities[id] = allClothes
