@@ -22,13 +22,8 @@ class LaundryFactory:
                     wash.add_incompatibilities(int(row[1]), int(row[2]))
                 if row[0] == 'n':
                     wash.add_clothes(int(row[1]), int(row[2]))
-                    wash.add_all_clothes(int(row[1]))
 
         file.close()
-
-        for inc in wash.incompatibilities:
-            for i in wash.incompatibilities[inc]:
-                wash.remove_incompatibilities(inc, i)
 
         return wash
 
@@ -43,7 +38,7 @@ class LaundryFactory:
             for i in wash[0]:
                 washes_formated.append([i,j])
 
-        with open("segundo_problema.txt", "w", newline='') as file:
+        with open("tercer_problema.txt", "w", newline='') as file:
             writer = csv.writer(file, delimiter=' ')
             writer.writerows(washes_formated)
 
