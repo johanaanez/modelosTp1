@@ -28,7 +28,7 @@ class LaundryFactory:
         return wash
 
     @staticmethod
-    def output(washes):
+    def output(washes, output_file):
         washes_formated = []
         j = 0
         total = 0
@@ -38,7 +38,7 @@ class LaundryFactory:
             for i in wash[0]:
                 washes_formated.append([i,j])
 
-        with open("cuarto_problema.txt", "w", newline='') as file:
+        with open(output_file, "w", newline='') as file:
             writer = csv.writer(file, delimiter=' ')
             writer.writerows(washes_formated)
 
