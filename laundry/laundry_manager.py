@@ -37,7 +37,9 @@ def print_time(washes):
     for wash in washes:
         total_time += wash[1]
 
-    print("Total time: ", total_time)
+
+    print("Washes quantity: ", len(washes))
+    print("Washes time: ", total_time)
 
 
 class LaundryManager:
