@@ -6,7 +6,7 @@ def main():
     # obtención de argumentos
     arguments = args.parse_arguments()
     #file = arguments.file
-    file = 'laundry/tercer_problema.txt'
+    file = 'laundry/cuarto_problema.txt'
 
     # cargar datos de los lavados
     laundry = LaundryFactory.Load(file)

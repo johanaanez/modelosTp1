@@ -38,7 +38,7 @@ class LaundryFactory:
             for i in wash[0]:
                 washes_formated.append([i,j])
 
-        with open("tercer_problema.txt", "w", newline='') as file:
+        with open("cuarto_problema.txt", "w", newline='') as file:
             writer = csv.writer(file, delimiter=' ')
             writer.writerows(washes_formated)
 

@@ -15,6 +15,7 @@ def is_compatible_with_wash(incompatibilities, incompatibility, wash):
             is_compatible = False
     return is_compatible
 
+
 def is_compatible_with_wash2(compatibilities, incompatibility, wash):
     is_compatible = True
     for i in wash:
@@ -29,6 +30,14 @@ def are_compatibles(clothe, incompatibility, incompatibilities, wash):
 
 def are_compatibles2(clothe, compatibility, compatibilities, wash):
     return clothe != compatibility and is_compatible_with_wash2(compatibilities, compatibility, wash)
+
+
+def print_time(washes):
+    total_time = 0
+    for wash in washes:
+        total_time += wash[1]
+
+    print("Total time: %d", total_time)
 
 
 class LaundryManager:
@@ -56,11 +65,14 @@ class LaundryManager:
                         map(lambda k: k.duration, list(filter(lambda x: x.id in wash, self.laundry.clothes))))
                     max_duration = max(durations)
                     washes.append([wash, max_duration])
+
+        print_time(washes)
         return washes
 
     def apply_compatibilities(self):
         washes = []
-        self.laundry.clothes = sorted(self.laundry.clothes, key=lambda x: len(self.laundry.compatibilities[x.id]), reverse=True)
+        self.laundry.clothes = sorted(self.laundry.clothes, key=lambda x: len(self.laundry.compatibilities[x.id]),
+                                      reverse=True)
 
         for i in range(len(self.laundry.clothes)):
             clothe1 = self.laundry.clothes[i]
